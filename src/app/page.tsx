@@ -82,7 +82,7 @@ export default function HomePage() {
             "inset 0 0 60px rgba(255,255,255,0.02), 0 0 0 1px rgba(255,255,255,0.1)",
         }}
       >
-        <GlobeModel hasModel={false} />
+        <GlobeModel hasMod={false} />
 
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
