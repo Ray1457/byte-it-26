@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* ── Satoshi Font Family ─────────────────────────────── */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* ── Tailwind v4 Theme Tokens ────────────────────────── */
+@theme inline {
+  --color-background: #0a0a0a;
+  --color-foreground: #ffffff;
+  --font-sans: "Satoshi", sans-serif;
+}
+
+/* ── Global Base ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden !important;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: "Satoshi", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Custom Scrollbar ────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 2px !important;
+  height: 2px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff !important;
+  border-radius: 0px !important;
+}
+
+/* Specific targeting for main container */
+main::-webkit-scrollbar {
+  width: 2px !important;
+  height: 2px !important;
+}
+
+main::-webkit-scrollbar-track {
+  background: #0a0a0a !important;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #ffffff !important;
+  border-radius: 0px !important;
+}
+
+/* Firefox scrollbar compatibility */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #ffffff #0a0a0a !important;
+}
