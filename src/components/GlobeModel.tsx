@@ -5,7 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls } from "@react-three/drei";
 import type { Group } from "three";
 
-const MOD_PATH = "/models/globe.glb";
+const MOD_PATH = "/globe.glb";
 
 function Model() {
   const grpRef = useRef<Group>(null);
