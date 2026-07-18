@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 const DeliveryBoxIcon = () => (
   <svg viewBox="0 0 100 100" className="w-48 h-48 sm:w-56 sm:h-56">
@@ -40,6 +41,26 @@ const RedMapPlaceholder = () => (
 );
 
 export default function NexusExpressPage() {
+  const [selectedType, setSelectedType] = useState("Standard");
+
+  const timeData: Record<string, { eta: string; dep: string }> = {
+    Standard: { eta: "7:27 pm", dep: "12:25 am" },
+    Priority: { eta: "2:00 pm", dep: "12:35 am" },
+    Express: { eta: "1:00 pm", dep: "12:45 am" },
+  };
+
+  const getBtnClass = (type: string) => {
+    return `px-4 py-2 rounded-full flex flex-col items-center flex-1 text-center min-w-[130px] cursor-pointer transition-colors ${
+      selectedType === type ? "bg-white text-black" : "bg-zinc-900 text-zinc-400 hover:bg-zinc-800"
+    }`;
+  };
+
+  const getSubClass = (type: string) => {
+    return `text-[9px] font-medium leading-tight ${
+      selectedType === type ? "text-zinc-800" : "text-zinc-500"
+    }`;
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white p-8 md:p-12 pb-32 flex flex-col gap-24 max-w-6xl mr-auto ml-8 md:ml-20 mt-12 md:mt-20 font-sans pt-10">
       {/* Delivery Section */}
@@ -56,34 +77,34 @@ export default function NexusExpressPage() {
             {/* Options Row */}
             <div className="flex flex-wrap gap-3">
               {/* Standard */}
-              <div className="bg-white text-black px-4 py-2 rounded-full flex flex-col items-center flex-1 text-center min-w-[130px]">
+              <button onClick={() => setSelectedType("Standard")} className={getBtnClass("Standard")}>
                 <span className="font-bold text-sm tracking-tight leading-tight mt-0.5">Standard</span>
-                <span className="text-[9px] font-medium leading-tight text-zinc-800">2-4 Hour@49</span>
-              </div>
+                <span className={getSubClass("Standard")}>2-4 Hour@49</span>
+              </button>
               {/* Priority */}
-              <div className="bg-white text-black px-4 py-2 rounded-full flex flex-col items-center flex-1 text-center min-w-[130px]">
+              <button onClick={() => setSelectedType("Priority")} className={getBtnClass("Priority")}>
                 <span className="font-bold text-sm tracking-tight leading-tight mt-0.5">Priority</span>
-                <span className="text-[9px] font-medium leading-tight text-zinc-800">60-90Mins@99</span>
-              </div>
+                <span className={getSubClass("Priority")}>60-90Mins@99</span>
+              </button>
               {/* Express */}
-              <div className="bg-white text-black px-4 py-2 rounded-full flex flex-col items-center flex-1 text-center min-w-[130px]">
+              <button onClick={() => setSelectedType("Express")} className={getBtnClass("Express")}>
                 <span className="font-bold text-sm tracking-tight leading-tight mt-0.5">Express</span>
-                <span className="text-[9px] font-medium leading-tight text-zinc-800">Under 30 Mins@199</span>
-              </div>
+                <span className={getSubClass("Express")}>Under 30 Mins@199</span>
+              </button>
             </div>
 
             {/* Times */}
             <div className="flex flex-col gap-5 max-w-[380px]">
               <div className="flex items-center justify-between gap-4">
                 <span className="text-xs md:text-[13px] font-medium text-zinc-200">Estimated time of arrival</span>
-                <div className="bg-white text-black px-6 py-1.5 rounded-full text-xs font-bold min-w-[130px] text-center">
-                  7:27 pm
+                <div className="bg-white text-black px-6 py-1.5 rounded-full text-xs font-bold min-w-[130px] text-center transition-all">
+                  {timeData[selectedType].eta}
                 </div>
               </div>
               <div className="flex items-center justify-between gap-4">
                 <span className="text-xs md:text-[13px] font-medium text-zinc-200">Time of departure</span>
-                <div className="bg-white text-black px-6 py-1.5 rounded-full text-xs font-bold min-w-[130px] text-center">
-                  12:25 am
+                <div className="bg-white text-black px-6 py-1.5 rounded-full text-xs font-bold min-w-[130px] text-center transition-all">
+                  {timeData[selectedType].dep}
                 </div>
               </div>
             </div>

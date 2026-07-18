@@ -185,7 +185,7 @@ export default function ProfilePage() {
               pointerEvents: "none",
             }}>
               <Image
-                src="/img/core4.png"
+                src="/img/infinity_card.png"
                 alt="Infinite Pass"
                 width={220}
                 height={220}
