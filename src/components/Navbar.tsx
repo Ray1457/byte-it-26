@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const navLks = [
   { label: "Home", href: "/" },
   { label: "Nexus Pass", href: "/nexus-pass" },
+  { label: "Nexus Express", href: "/nexus-express" },
   { label: "Cart", href: "/cart" },
   { label: "Profile", href: "/profile" },
 ];
